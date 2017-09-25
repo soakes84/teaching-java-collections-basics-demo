@@ -8,6 +8,9 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.Random;
 
+import static com.theironyard.MapProject.initMap;
+import static com.theironyard.MapProject.calcFibonacci;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -41,7 +44,8 @@ public class Main {
             int index = random.nextInt(playerNames.length);
             winnersNames.add(playerNames[index]);
         }
-        System.out.println(winnersNames);
+
+       // System.out.println(winnersNames);    ** prints out three winners
 
 
         String[] names = {"Stephen", "Josh", "Chris", "Patrick", "Calvin", "Spencer"};
@@ -73,6 +77,19 @@ public class Main {
        // System.out.println(dictionary.get("chromosome"));  ** gives value for chromosome
        // System.out.println(dictionary.get("genetics"));    ** comes up null because there is no instance of it
        // System.out.println(dictionary.get("hammer"));
+
+        initMap();
+
+        long startTime;
+        long endTime;
+
+        startTime = System.currentTimeMillis();
+        for (int i = 0; i < 50; i++) {
+            System.out.println("calc(" + i + ") = " + calcFibonacci(i));
+        }
+        endTime = System.currentTimeMillis();
+
+        System.out.println("50 Fibonacci numbers took " + (endTime - startTime) + " milliseconds");
 
 
     }
